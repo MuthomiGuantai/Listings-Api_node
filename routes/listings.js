@@ -14,14 +14,17 @@ router.post('/', (req, res) => {
         realtor: req.body.realtor,
         price: req.body.price,
         imageUrl: req.body.imageUrl
-    });
-    post.save()
-    .then(data => {
-        res.json(data)
-    })
-    .catch(err => {
-        res.json({message: err });
-    })
+    }) ;
+    async function lister(){
+        try {
+            const savedListing = await post.save();
+            res.json(savedListing);
+        } catch(err){
+            res.json({message: err});
+        }
+    }
+    lister()
+    
 });
 
 module.exports = router

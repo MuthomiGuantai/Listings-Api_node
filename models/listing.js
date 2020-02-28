@@ -22,10 +22,14 @@ const ListingSchema = mongoose.Schema({
         default: Date.now,
         required: true
     },
+    price: {
+        type: String,
+        required: true
+    },
     imageURL: {
         type: String
     }
 
 });
 
-module.exports = mongoose.model('listings', ListingSchema);
+module.exports = mongoose.model('listing', ListingSchema);
